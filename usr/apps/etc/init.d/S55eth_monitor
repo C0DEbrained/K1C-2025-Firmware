@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# Start ip monitor for ethernet
+#
+log_file=/usr/data/printer_data/logs/eth.log
+
+trace_log()
+{
+    if [ -f /usr/data/creality/debug/trace_eth ] ;
+    then
+        printf "`date`: $1\n" >> $log_file
+    fi
+}
+
+
+
+if [ "$(id -u)" -ne 0 ]; then
+      trace_log "$0: Operation permission not permitted"
+      exit 1
+fi
+
+trace_log "$0 para $1"
+
+model_=`creality_sn read  creality_model_str`
+model="$(echo $model_ | tr '[:upper:]' '[:lower:]')"
+if [ x$model = x"k1max" ]
+then
+	# /sbin/ifconfig eth0 up
+	# /sbin/udhcpc -i eth0 -s /usr/apps/usr/bin/udhcpc.sh &
+
+	case "$1" in
+		start)
+			trace_log "run eth_monitor.sh: ip monitor"
+			/usr/apps/usr/bin/eth_monitor.sh &
+		;;
+
+		stop)
+			trace_log "stop eth_monitor.sh:kill ip monitor"
+			ps |grep "ip monitor"|grep -v grep|awk '{print $1}' |xargs kill -9 
+		;;
+	*)
+		echo "Usage: $0 {start|stop}"
+		exit 1
+
+	esac
+fi
+exit $?

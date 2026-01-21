@@ -1,0 +1,6 @@
+{
+  "#log_level":"LOG_DEFAULT=0, LOG_DEBUG=1, LOG_INFO=2, LOG_WARNING=3, LOG_ERROR=4",
+  "log_level":1,
+  "#log_route":"file=1, console=0",
+  "log_route":1
+}

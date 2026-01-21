@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        count=0
+        recv_cmd=""
+        while [ "$recv_cmd" != "boot_animation_end" ] && [ $count -lt 30 ]; do
+            #cmd_mcu read_str 默认等待300ms 的超时时间
+            recv_cmd=`cmd_mcu read_str 128`
+            count=$(($count + 1))
+        done
+
+        echo 1 > /sys/module/ingenic_felix/parameters/is_insmod
+        echo 1 > /sys/module/soc_fb_layer_mixer/parameters/is_insmod
+        echo 1 > /sys/module/soc_fb/parameters/is_insmod
+
+    ;;
+    *)
+        exit 1
+esac
+
+exit 0

@@ -1,0 +1,11 @@
+!root:$1$FgWavfhM$xLITYIZ59pfIFs6ESSnE2/:20129::::::
+daemon:*:::::::
+bin:*:::::::
+sys:*:::::::
+sync:*:::::::
+mail:*:::::::
+www-data:*:::::::
+operator:*:::::::
+nobody:*:::::::
+dbus:*:::::::
+!creality:$5$i8KKHaaFTqP2XasW$uuOKlkGLEI3gvfPBDgBjTmjWCU1cq7g6q58Xjd9M4uD:::::::
