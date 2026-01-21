@@ -1,0 +1,271 @@
+# Creality K1C 2025 Firmware
+
+This repo contains the filesystem contents of a Creality K1C 2025 3D Printer. 
+
+Files were copied from the root of the filesystem of the printer with the following command:
+
+```bash
+rsync -aXv --exclude='/proc/*' --exclude='/sys/*' --exclude='/dev/*' --exclude='/media/*' --exclude='/tmp/*' root@K1C:/ extracted_root
+```
+
+The following command was then run to remove any files that were not present when the printer was first booted:
+
+```bash
+find . -type f -newermt '12/24/2025 0:00:00' -exec rm {} \; 
+```
+
+<details>
+<summary>Excluded Files</summary>
+
+The list of excluded files is included below for reference. Note that these are either caused by typical usage, or files created during the rooting process.
+
+```
+-rw-r--r-- 1 5 Jan 20 17:02 ./home/creality/run/alchemistp.pid
+-rw-r--r-- 1 5 Jan 20 17:02 ./home/creality/run/gui_service.pid
+-rw-r--r-- 1 5 Jan 20 17:02 ./home/creality/run/mdns.pid
+-rw-r--r-- 1 5 Jan 20 17:02 ./home/creality/run/onyxp.pid
+-rw-r--r-- 1 95 Jan 21 08:32 ./home/creality/resolv.conf
+-rw------- 1 50 Jan 21 08:33 ./root/.ash_history
+-rw-r--r-- 1 768 Jan 21 08:33 ./run/utmp
+-rwxr-xr-x 1 1.1K Jan  7 20:49 ./usr/apps/etc/init.d/S999persistence
+-rwxr-xr-x 1 1.3K Jan  2 16:55 ./usr/apps/etc/init.d/S99persistence
+-rw-rw-rw- 1 114 Jan 20 17:02 ./usr/apps/etc/localtime
+-rw-rw-rw- 1 4 Jan 20 17:02 ./usr/apps/etc/timezone
+-rw-r--r-- 1 973K Dec 31 11:21 ./usr/data/core/localgui.core.gz
+-rw-r--r-- 1 22 Jan 21 08:02 ./usr/data/creality/alchemistp/uptime.json
+-rw-r--r-- 1 216 Dec 25 10:37 ./usr/data/creality/gui/config/cxsw_tb_info.json
+-rwxr-xr-x 1 361 Jan  7 11:02 ./usr/data/creality/gui/config/fault_code_info.json
+-rw-r--r-- 1 0 Jan 20 17:03 ./usr/data/creality/gui/config/pipe.json
+-rw-r--r-- 1 0 Jan 15 11:26 ./usr/data/creality/gui/config/print_list.json
+-rw-r--r-- 1 0 Jan  7 11:02 ./usr/data/creality/gui/config/statistic.json
+-rw-r--r-- 1 1.5K Jan 20 17:02 ./usr/data/creality/gui/config/system_config.json
+-rw-r--r-- 1 57 Jan  2 14:15 ./usr/data/creality/gui/config/upload_data_offset.json
+-rw-r--r-- 1 320 Jan  5 21:46 ./usr/data/creality/gui/config/user_info.json
+-rw-r--r-- 1 1.8K Jan  5 21:46 ./usr/data/creality/gui/userdata/avatar.jpg
+-rw-r--r-- 1 2.1M Jan  2 14:13 ./usr/data/creality/onyxp/onyxp.log
+-rw-r--r-- 1 54K Jan  7 20:50 ./usr/data/creality/solusp/ai_images/platform_foreign_frame_0.jpg
+-rw-r--r-- 1 46K Jan  7 20:50 ./usr/data/creality/solusp/ai_images/platform_foreign_frame_1.jpg
+-rw-r--r-- 1 62K Jan  7 20:50 ./usr/data/creality/solusp/ai_images/platform_foreign_frame_2.jpg
+-rw-r--r-- 1 57K Jan  7 20:50 ./usr/data/creality/solusp/ai_images/platform_foreign_frame_3.jpg
+-rw-r--r-- 1 50K Jan  7 20:50 ./usr/data/creality/solusp/ai_images/platform_foreign_frame_4.jpg
+-rw-r--r-- 1 71K Jan  7 11:02 ./usr/data/creality/solusp/ai_upload/K1C-platformAndForeign-0.79-1767783762495.jpg
+-rw-r--r-- 1 4.3M Jan  2 14:27 ./usr/data/helper-script/files/boot-display/k1_boot_display.tar.gz
+-rw-r--r-- 1 5.4M Jan  2 14:27 ./usr/data/helper-script/files/boot-display/k1max_boot_display.tar.gz
+-rw-r--r-- 1 687K Jan  2 14:27 ./usr/data/helper-script/files/boot-display/stock_boot_display.tar.gz
+-rw-r--r-- 1 3.9K Jan  2 14:27 ./usr/data/helper-script/files/buzzer-support/beep.mp3
+-rw-r--r-- 1 304 Jan  2 14:27 ./usr/data/helper-script/files/buzzer-support/buzzer-support.cfg
+-rw-r--r-- 1 1.5K Jan  2 14:27 ./usr/data/helper-script/files/camera-settings/camera-settings-nebula.cfg
+-rw-r--r-- 1 3.9K Jan  2 14:27 ./usr/data/helper-script/files/camera-settings/camera-settings.cfg
+-rwxr-xr-x 1 2.2K Jan  2 14:27 ./usr/data/helper-script/files/entware/generic.sh
+-rwxr-xr-x 1 112K Jan  2 14:27 ./usr/data/helper-script/files/fixes/curl
+-rw-r--r-- 1 25K Jan  2 14:27 ./usr/data/helper-script/files/fixes/gcode.py
+-rw-r--r-- 1 25K Jan  2 14:27 ./usr/data/helper-script/files/fixes/gcode_3v3.py
+-rwxr-xr-x 1 17 Jan  2 14:27 ./usr/data/helper-script/files/fixes/sudo
+-rwxr-xr-x 1 3.7K Jan  2 14:27 ./usr/data/helper-script/files/fixes/supervisorctl
+-rwxr-xr-x 1 109 Jan  2 14:27 ./usr/data/helper-script/files/fixes/systemctl
+-rw-r--r-- 1 2.9K Jan  2 14:27 ./usr/data/helper-script/files/fluidd-logos/config.json
+-rw-r--r-- 1 1.2K Jan  2 14:27 ./usr/data/helper-script/files/fluidd-logos/logo_creality_v1.svg
+-rw-r--r-- 1 6.8K Jan  2 14:27 ./usr/data/helper-script/files/fluidd-logos/logo_creality_v2.svg
+-rw-r--r-- 1 3.1K Jan  2 14:27 ./usr/data/helper-script/files/gcode-shell-command/gcode_shell_command.py
+-rwxr-xr-x 1 525 Jan  2 14:27 ./usr/data/helper-script/files/git-backup/S52Git-Backup
+-rw-r--r-- 1 2.5K Jan  2 14:27 ./usr/data/helper-script/files/git-backup/git-backup.cfg
+-rwxr-xr-x 1 14K Jan  2 14:27 ./usr/data/helper-script/files/git-backup/git-backup.sh
+-rw-r--r-- 1 1.6K Jan  2 14:27 ./usr/data/helper-script/files/guppy-screen/guppy-update.sh
+-rw-r--r-- 1 972 Jan  2 14:27 ./usr/data/helper-script/files/guppy-screen/guppy_update-3v3.cfg
+-rw-r--r-- 1 1.2K Jan  2 14:27 ./usr/data/helper-script/files/guppy-screen/guppy_update.cfg
+-rw-r--r-- 1 1.5K Jan  2 14:27 ./usr/data/helper-script/files/guppy-screen/guppyconfig-3v3.json
+-rwxr-xr-x 1 7.3K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/scripts/calibrate_shaper.py
+-rwxr-xr-x 1 27K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/scripts/graph_belts.py
+-rwxr-xr-x 1 16K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/scripts/shaper_calibrate.py
+-rwxr-xr-x 1 3.1K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/scripts/shaper_defs.py
+-rwxr-xr-x 1 1.7K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/calibrate_shaper_config.py
+-rwxr-xr-x 1 110 Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/delete_csv.sh
+-rwxr-xr-x 1 577 Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/delete_graph.sh
+-rwxr-xr-x 1 100K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/ft2font.cpython-38-mipsel-linux-gnu.so
+-rw-r--r-- 1 5.2K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/improved-shapers-3v3.cfg
+-rw-r--r-- 1 5.5K Jan  2 14:27 ./usr/data/helper-script/files/improved-shapers/improved-shapers.cfg
+-rw-r--r-- 1 4.5K Jan  2 14:27 ./usr/data/helper-script/files/kamp/Adaptive_Meshing.cfg
+-rw-r--r-- 1 2.3K Jan  2 14:27 ./usr/data/helper-script/files/kamp/KAMP_Settings.cfg
+-rw-r--r-- 1 6.6K Jan  2 14:27 ./usr/data/helper-script/files/kamp/Line_Purge.cfg
+-rw-r--r-- 1 846 Jan  2 14:27 ./usr/data/helper-script/files/kamp/Prusa_Slicer.cfg
+-rw-r--r-- 1 3.5K Jan  2 14:27 ./usr/data/helper-script/files/kamp/Smart_Park.cfg
+-rw-r--r-- 1 4.6K Jan  2 14:27 ./usr/data/helper-script/files/kamp/Start_Print-3v3.cfg
+-rw-r--r-- 1 4.4K Jan  2 14:27 ./usr/data/helper-script/files/kamp/Start_Print.cfg
+-rw-r--r-- 1 7.2K Jan  2 14:27 ./usr/data/helper-script/files/klipper-virtual-pins/virtual_pins.py
+-rw-r--r-- 1 6.0K Jan  2 14:27 ./usr/data/helper-script/files/macros/M600-support-3v3.cfg
+-rw-r--r-- 1 5.2K Jan  2 14:27 ./usr/data/helper-script/files/macros/M600-support-ke.cfg
+-rw-r--r-- 1 6.0K Jan  2 14:27 ./usr/data/helper-script/files/macros/M600-support.cfg
+-rw-r--r-- 1 4.7K Jan  2 14:27 ./usr/data/helper-script/files/macros/fans-control.cfg
+-rw-r--r-- 1 1.4K Jan  2 14:27 ./usr/data/helper-script/files/macros/save-zoffset.cfg
+-rw-r--r-- 1 7.6K Jan  2 14:27 ./usr/data/helper-script/files/macros/useful-macros-3v3.cfg
+-rw-r--r-- 1 7.3K Jan  2 14:27 ./usr/data/helper-script/files/macros/useful-macros.cfg
+-rw-r--r-- 1 22K Jan  2 14:27 ./usr/data/helper-script/files/moonraker-timelapse/timelapse.cfg
+-rw-r--r-- 1 34K Jan  2 14:27 ./usr/data/helper-script/files/moonraker-timelapse/timelapse.py
+-rw-r--r-- 1 183 Jan  2 14:27 ./usr/data/helper-script/files/moonraker/moonraker.asvc
+-rw-r--r-- 1 2.4K Jan  2 14:27 ./usr/data/helper-script/files/moonraker/moonraker.conf
+-rw-r--r-- 1 58M Jan  2 19:15 ./usr/data/helper-script/files/moonraker/moonraker.tar
+-rw-r--r-- 1 24M Jan  2 14:27 ./usr/data/helper-script/files/moonraker/moonraker.tar.gz
+-rw-r--r-- 1 5.4K Jan  2 14:27 ./usr/data/helper-script/files/moonraker/nginx.conf
+-rw-r--r-- 1 649K Jan  2 21:16 ./usr/data/helper-script/files/moonraker/nginx.tar
+-rw-r--r-- 1 273K Jan  2 14:27 ./usr/data/helper-script/files/moonraker/nginx.tar.gz
+-rw-r--r-- 1 94 Jan  2 14:27 ./usr/data/helper-script/files/nozzle-cleaning-fan-control/__init__.py
+-rw-r--r-- 1 145 Jan  2 14:27 ./usr/data/helper-script/files/nozzle-cleaning-fan-control/nozzle-cleaning-fan-control.cfg
+-rw-r--r-- 1 1.4K Jan  2 14:27 ./usr/data/helper-script/files/nozzle-cleaning-fan-control/prtouch_v2_fan.pyc
+-rw-r--r-- 1 573 Jan  2 14:27 ./usr/data/helper-script/files/screws-tilt-adjust/screws-tilt-adjust-3ke.cfg
+-rw-r--r-- 1 437 Jan  2 14:27 ./usr/data/helper-script/files/screws-tilt-adjust/screws-tilt-adjust-e5m.cfg
+-rw-r--r-- 1 541 Jan  2 14:27 ./usr/data/helper-script/files/screws-tilt-adjust/screws-tilt-adjust-k1.cfg
+-rw-r--r-- 1 546 Jan  2 14:27 ./usr/data/helper-script/files/screws-tilt-adjust/screws-tilt-adjust-k1max.cfg
+-rw-r--r-- 1 6.1K Jan  2 14:27 ./usr/data/helper-script/files/screws-tilt-adjust/screws_tilt_adjust.py
+-rwxr-xr-x 1 2.4K Jan  2 14:27 ./usr/data/helper-script/files/scripts/useful_macros.sh
+-rwxr-xr-x 1 600 Jan  2 14:27 ./usr/data/helper-script/files/services/S50nginx
+-rwxr-xr-x 1 1.2K Jan  2 14:27 ./usr/data/helper-script/files/services/S50usb_camera-dual
+-rwxr-xr-x 1 995 Jan  2 14:27 ./usr/data/helper-script/files/services/S50usb_camera-single
+-rwxr-xr-x 1 875 Jan  2 14:27 ./usr/data/helper-script/files/services/S55klipper_service
+-rwxr-xr-x 1 1.1K Jan  2 14:27 ./usr/data/helper-script/files/services/S56moonraker_service
+-rwxr-xr-x 1 2.1K Jan  2 14:27 ./usr/data/helper-script/files/services/S58factoryreset
+-rwxr-xr-x 1 3.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/10SE/customize_menu_10SE.sh
+-rwxr-xr-x 1 2.9K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/10SE/info_menu_10SE.sh
+-rwxr-xr-x 1 8.3K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/10SE/install_menu_10SE.sh
+-rwxr-xr-x 1 6.9K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/10SE/remove_menu_10SE.sh
+-rwxr-xr-x 1 3.3K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/10SE/tools_menu_10SE.sh
+-rwxr-xr-x 1 3.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3KE/customize_menu_3KE.sh
+-rwxr-xr-x 1 3.0K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3KE/info_menu_3KE.sh
+-rwxr-xr-x 1 8.8K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3KE/install_menu_3KE.sh
+-rwxr-xr-x 1 7.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3KE/remove_menu_3KE.sh
+-rwxr-xr-x 1 3.3K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3KE/tools_menu_3KE.sh
+-rwxr-xr-x 1 3.3K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3V3/customize_menu_3V3.sh
+-rwxr-xr-x 1 3.2K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3V3/info_menu_3V3.sh
+-rwxr-xr-x 1 9.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3V3/install_menu_3V3.sh
+-rwxr-xr-x 1 7.7K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3V3/remove_menu_3V3.sh
+-rwxr-xr-x 1 3.5K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/3V3/tools_menu_3V3.sh
+-rwxr-xr-x 1 3.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/E5M/customize_menu_E5M.sh
+-rwxr-xr-x 1 3.5K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/E5M/info_menu_E5M.sh
+-rwxr-xr-x 1 11K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/E5M/install_menu_E5M.sh
+-rwxr-xr-x 1 9.1K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/E5M/remove_menu_E5M.sh
+-rwxr-xr-x 1 3.5K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/E5M/tools_menu_E5M.sh
+-rwxr-xr-x 1 4.1K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/K1/customize_menu_K1.sh
+-rwxr-xr-x 1 3.4K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/K1/info_menu_K1.sh
+-rwxr-xr-x 1 11K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/K1/install_menu_K1.sh
+-rwxr-xr-x 1 9.0K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/K1/remove_menu_K1.sh
+-rwxr-xr-x 1 3.5K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/K1/tools_menu_K1.sh
+-rwxr-xr-x 1 1.6K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/backup_restore_menu.sh
+-rwxr-xr-x 1 5.3K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/functions.sh
+-rwxr-xr-x 1 4.6K Jan  2 19:01 ./usr/data/helper-script/scripts/menu/main_menu.sh
+-rwxr-xr-x 1 3.2K Jan  2 14:27 ./usr/data/helper-script/scripts/menu/system_menu.sh
+-rwxr-xr-x 1 2.3K Jan  2 14:27 ./usr/data/helper-script/scripts/backup_klipper_config.sh
+-rwxr-xr-x 1 2.3K Jan  2 14:27 ./usr/data/helper-script/scripts/backup_moonraker_database.sh
+-rwxr-xr-x 1 2.6K Jan  2 14:27 ./usr/data/helper-script/scripts/buzzer_support.sh
+-rwxr-xr-x 1 2.9K Jan  2 14:27 ./usr/data/helper-script/scripts/camera_settings_control.sh
+-rwxr-xr-x 1 1.4K Jan  2 14:27 ./usr/data/helper-script/scripts/creality_dynamic_logos.sh
+-rwxr-xr-x 1 7.7K Jan  2 14:27 ./usr/data/helper-script/scripts/creality_web_interface.sh
+-rwxr-xr-x 1 2.8K Jan  2 14:27 ./usr/data/helper-script/scripts/custom_boot_display.sh
+-rwxr-xr-x 1 1.9K Jan  2 14:27 ./usr/data/helper-script/scripts/entware.sh
+-rwxr-xr-x 1 5.9K Jan  2 14:27 ./usr/data/helper-script/scripts/fans_control_macros.sh
+-rwxr-xr-x 1 6.4K Jan  2 14:27 ./usr/data/helper-script/scripts/fluidd.sh
+-rwxr-xr-x 1 1.8K Jan  2 14:27 ./usr/data/helper-script/scripts/gcode_shell_command.sh
+-rwxr-xr-x 1 3.2K Jan  2 14:27 ./usr/data/helper-script/scripts/git_backup.sh
+-rwxr-xr-x 1 14K Jan  2 14:27 ./usr/data/helper-script/scripts/guppy_screen.sh
+-rwxr-xr-x 1 3.1K Jan  2 14:27 ./usr/data/helper-script/scripts/guppyflo.sh
+-rwxr-xr-x 1 6.4K Jan  2 14:27 ./usr/data/helper-script/scripts/improved_shapers.sh
+-rwxr-xr-x 1 6.3K Jan  2 14:27 ./usr/data/helper-script/scripts/kamp.sh
+-rwxr-xr-x 1 5.5K Jan  2 14:27 ./usr/data/helper-script/scripts/m600_support.sh
+-rwxr-xr-x 1 3.2K Jan  2 14:27 ./usr/data/helper-script/scripts/mainsail.sh
+-rwxr-xr-x 1 3.0K Jan  2 14:27 ./usr/data/helper-script/scripts/mobileraker_companion.sh
+-rwxr-xr-x 1 8.7K Jan  2 14:27 ./usr/data/helper-script/scripts/moonraker_nginx.sh
+-rwxr-xr-x 1 2.9K Jan  2 14:27 ./usr/data/helper-script/scripts/moonraker_obico.sh
+-rwxr-xr-x 1 3.9K Jan  2 14:27 ./usr/data/helper-script/scripts/moonraker_timelapse.sh
+-rwxr-xr-x 1 3.1K Jan  2 14:27 ./usr/data/helper-script/scripts/nozzle_cleaning_fan_control.sh
+-rwxr-xr-x 1 1.8K Jan  2 14:27 ./usr/data/helper-script/scripts/octoapp_companion.sh
+-rwxr-xr-x 1 1.9K Jan  2 14:27 ./usr/data/helper-script/scripts/octoeverywhere.sh
+-rwxr-xr-x 1 7.5K Jan  2 19:09 ./usr/data/helper-script/scripts/paths.sh
+-rwxr-xr-x 1 2.6K Jan  2 14:27 ./usr/data/helper-script/scripts/save_zoffset_macros.sh
+-rwxr-xr-x 1 4.9K Jan  2 14:27 ./usr/data/helper-script/scripts/screws_tilt_adjust.sh
+-rwxr-xr-x 1 2.1K Jan  2 14:27 ./usr/data/helper-script/scripts/simplyprint.sh
+-rwxr-xr-x 1 14K Jan  2 14:27 ./usr/data/helper-script/scripts/tools.sh
+-rwxr-xr-x 1 3.7K Jan  2 14:27 ./usr/data/helper-script/scripts/usb_camera.sh
+-rwxr-xr-x 1 2.8K Jan  2 14:27 ./usr/data/helper-script/scripts/useful_macros.sh
+-rw-r--r-- 1 35K Jan  2 14:27 ./usr/data/helper-script/LICENSE
+-rw-r--r-- 1 349 Jan  2 14:27 ./usr/data/helper-script/README.md
+-rwxr-xr-x 1 2.9K Jan  2 19:12 ./usr/data/helper-script/helper.sh
+-rw-r--r-- 1 116 Jan  2 21:14 ./usr/data/nginx/error.log
+-rw-r--r-- 1 935 Jan  2 21:31 ./usr/data/printer_data/config/.moonraker.conf.bkp
+-rw-r--r-- 1 3.6K Dec 29 16:53 ./usr/data/printer_data/config/20251229-165302.zip
+-rw-r--r-- 1 25K Dec 29 17:02 ./usr/data/printer_data/config/collection-20251229-170203.zip
+-rw-r--r-- 1 11M Dec 29 17:03 ./usr/data/printer_data/config/collection-20251229-170223.zip
+-rw-r--r-- 1 331 Dec 29 17:04 ./usr/data/printer_data/config/collection-20251229-170444.zip
+-rw-r--r-- 1 40M Dec 29 17:08 ./usr/data/printer_data/config/collection-20251229-170653.zip
+-rwxr-xr-x 1 771 Jan  2 16:24 ./usr/data/printer_data/config/exploit.sh
+-rw-r--r-- 1 183 Jan  2 19:19 ./usr/data/printer_data/config/moonraker.asvc
+-rw-r--r-- 1 2.4K Jan  2 19:19 ./usr/data/printer_data/config/moonraker.conf
+-rw-r--r-- 1 22 Jan 15 12:55 ./usr/data/printer_data/config/motor_sound_cfg.json
+-rwxr-xr-x 1 525 Jan  2 16:27 ./usr/data/printer_data/config/postexploit.sh
+-rw-r--r-- 1 7.5K Dec 25 10:55 ./usr/data/printer_data/config/printer-20251225_110102.cfg
+-rw-r--r-- 1 8.3K Dec 25 11:01 ./usr/data/printer_data/config/printer-20251225_115244.cfg
+-rw-r--r-- 1 8.3K Dec 25 11:52 ./usr/data/printer_data/config/printer-20251225_161632.cfg
+-rw-r--r-- 1 8.3K Dec 25 16:16 ./usr/data/printer_data/config/printer-20251225_184028.cfg
+-rwxr-xr-x 1 359 Jan  2 16:24 ./usr/data/printer_data/config/privesc.py
+-rw-r--r-- 1 40K Jan  2 21:36 ./usr/data/printer_data/database/moonraker-sql.db
+-rw-r--r-- 1 52K Jan 20 17:02 ./usr/data/printer_data/database/nexusp-sql.db
+-rw-r--r-- 1 8.5K Jan  7 11:02 ./usr/data/printer_data/gcodes/.thumbs/MagnusHeadphoneHanger-195x195.png
+-rw-r--r-- 1 15K Jan  7 11:02 ./usr/data/printer_data/gcodes/.thumbs/MagnusHeadphoneHanger-300x300.png
+-rw------- 1 13K Jan  7 11:02 ./usr/data/printer_data/gcodes/.thumbs/MagnusHeadphoneHanger-320x320.png
+-rw-r--r-- 1 1.3K Jan  7 11:02 ./usr/data/printer_data/gcodes/.thumbs/MagnusHeadphoneHanger-48x48.png
+-rw-r--r-- 1 3.2K Jan  7 11:02 ./usr/data/printer_data/gcodes/.thumbs/MagnusHeadphoneHanger-96x96.png
+-rw-r--r-- 1 8.8K Jan 15 09:25 ./usr/data/printer_data/gcodes/.thumbs/Watch_PLA_2h0m-195x195.png
+-rw-r--r-- 1 16K Jan 15 09:25 ./usr/data/printer_data/gcodes/.thumbs/Watch_PLA_2h0m-300x300.png
+-rw------- 1 12K Jan 15 09:25 ./usr/data/printer_data/gcodes/.thumbs/Watch_PLA_2h0m-320x320.png
+-rw-r--r-- 1 1.4K Jan 15 09:25 ./usr/data/printer_data/gcodes/.thumbs/Watch_PLA_2h0m-48x48.png
+-rw-r--r-- 1 3.3K Jan 15 09:25 ./usr/data/printer_data/gcodes/.thumbs/Watch_PLA_2h0m-96x96.png
+-rw-r--r-- 1 11M Dec 29 10:51 './usr/data/printer_data/gcodes/K1C tray_v4_1-1.gcode'
+-rw------- 1 5.4M Jan  7 11:02 ./usr/data/printer_data/gcodes/MagnusHeadphoneHanger.gcode
+-rw-r--r-- 1 11M Jan 15 09:25 ./usr/data/printer_data/gcodes/Watch_PLA_2h0m.gcode
+-rw-r--r-- 1 26K Jan 20 17:02 ./usr/data/printer_data/logs/cmd_iap_leveling_klipper.log
+-rw-r--r-- 1 481 Jan 20 17:02 ./usr/data/printer_data/logs/cmd_iap_nozzle_klipper.log
+-rw-r--r-- 1 79 Jan 20 17:02 ./usr/data/printer_data/logs/cmd_mcu.log
+-rw-r--r-- 1 230 Jan  2 16:32 ./usr/data/printer_data/logs/exploit.log
+-rw-r--r-- 1 3.0M Jan 21 08:34 ./usr/data/printer_data/logs/kernel.log
+-rw-r--r-- 1 92K Jan 19 14:16 ./usr/data/printer_data/logs/kernel.log.bak
+-rw-r--r-- 1 101K Jan 20 17:03 ./usr/data/printer_data/logs/klippy.log
+-rw-r--r-- 1 102K Jan 14 20:16 ./usr/data/printer_data/logs/klippy.log.2026-01-14
+-rw-r--r-- 1 102K Jan 16 21:50 ./usr/data/printer_data/logs/klippy.log.2026-01-16
+-rw-r--r-- 1 102K Jan 17 17:00 ./usr/data/printer_data/logs/klippy.log.2026-01-17
+-rw-r--r-- 1 157 Jan  2 14:15 ./usr/data/printer_data/logs/log_config.json
+-rw-r--r-- 1 19K Jan  2 21:36 ./usr/data/printer_data/logs/moonraker.log
+-rw-r--r-- 1 7.6M Jan 21 08:34 ./usr/data/printer_data/logs/nexusp.log
+-rw-r--r-- 1 422K Dec 30 09:31 ./usr/data/printer_data/logs/nexusp.log_1767087117.197875.gz
+-rw-r--r-- 1 335K Dec 30 10:08 ./usr/data/printer_data/logs/nexusp.log_1767089319.568334.gz
+-rw-r--r-- 1 666K Jan  2 19:57 ./usr/data/printer_data/logs/nexusp.log_2026-01-02_195742.gz
+-rw-r--r-- 1 3.6M Jan 21 08:34 ./usr/data/printer_data/logs/onyxp.log
+-rw-r--r-- 1 25M Jan 20 17:22 ./usr/data/printer_data/logs/quintusp.log
+-rw-r--r-- 1 47K Jan 20 17:02 ./usr/data/printer_data/logs/thirteenthp.log
+-rw-r--r-- 1 920K Jan 21 08:34 ./usr/data/printer_data/logs/vectorp.log
+-rw-r--r-- 1 90K Dec 29 17:30 ./usr/data/printer_data/logs/vectorp.log.2025-12-29_172959.gz
+-rw-r--r-- 1 57K Dec 29 22:22 ./usr/data/printer_data/logs/vectorp.log.2025-12-29_222221.gz
+-rw-r--r-- 1 60K Dec 30 13:42 ./usr/data/printer_data/logs/vectorp.log.2025-12-30_134219.gz
+-rw-r--r-- 1 72K Dec 30 17:58 ./usr/data/printer_data/logs/vectorp.log.2025-12-30_175859.gz
+-rw-r--r-- 1 77K Dec 31 10:07 ./usr/data/printer_data/logs/vectorp.log.2025-12-31_100730.gz
+-rw-r--r-- 1 60K Dec 31 15:02 ./usr/data/printer_data/logs/vectorp.log.2025-12-31_150211.gz
+-rw-r--r-- 1 80K Dec 31 19:17 ./usr/data/printer_data/logs/vectorp.log.2025-12-31_191702.gz
+-rw-r--r-- 1 62K Jan  2 13:54 ./usr/data/printer_data/logs/vectorp.log.2026-01-02_135418.gz
+-rw-r--r-- 1 82K Jan  2 18:10 ./usr/data/printer_data/logs/vectorp.log.2026-01-02_181000.gz
+-rw-r--r-- 1 56K Jan  2 23:02 ./usr/data/printer_data/logs/vectorp.log.2026-01-02_230206.gz
+-rw-r--r-- 1 61K Jan  3 17:53 ./usr/data/printer_data/logs/vectorp.log.2026-01-03_175351.gz
+-rw-r--r-- 1 54K Jan  3 22:49 ./usr/data/printer_data/logs/vectorp.log.2026-01-03_224945.gz
+-rw-r--r-- 1 68K Jan  5 19:12 ./usr/data/printer_data/logs/vectorp.log.2026-01-05_191220.gz
+-rw-r--r-- 1 79K Jan  7 10:15 ./usr/data/printer_data/logs/vectorp.log.2026-01-07_101503.gz
+-rw-r--r-- 1 102K Jan  7 16:24 ./usr/data/printer_data/logs/vectorp.log.2026-01-07_162432.gz
+-rw-r--r-- 1 70K Jan 13 18:17 ./usr/data/printer_data/logs/vectorp.log.2026-01-13_181722.gz
+-rw-r--r-- 1 103K Jan 15 18:23 ./usr/data/printer_data/logs/vectorp.log.2026-01-15_182304.gz
+-rw-r--r-- 1 70K Jan 20 18:11 ./usr/data/printer_data/logs/vectorp.log.2026-01-20_181150.gz
+-rw-r--r-- 1 54K Jan 21 00:09 ./usr/data/printer_data/logs/vectorp.log.2026-01-21_000958.gz
+-rw-r--r-- 1 54K Jan 21 06:04 ./usr/data/printer_data/logs/vectorp.log.2026-01-21_060425.gz
+-rw-r--r-- 1 1.2K Jan 21 06:04 ./usr/data/printer_data/logs/vectorp_tmp.txt
+-rw-r--r-- 1 714K Jan  2 21:31 ./usr/data/printer_data/misc/usb.ids
+-rw-r--r-- 1 32 Jan  2 21:31 ./usr/data/printer_data/.moonraker.uuid
+-rw-r--r-- 1 132 Jan  2 21:31 ./usr/data/printer_data/moonraker.asvc
+-rw-r--r-- 1 48 Jan 15 11:26 ./usr/data/printer_data/totals
+-rw-r--r-- 1 14K Jan  2 14:14 ./usr/data/upgrade/20260102141350.log
+-rw-r--r-- 1 405 Dec 26 10:56 ./usr/data/wpa_supplicant.conf
+```
+
+</details>
